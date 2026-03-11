@@ -8,15 +8,15 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 
-require_once 'utils/dbo/daoConnection.php';
-require_once 'utils/dbo/daoCommand.php';
-require_once 'utils/mailtools/mail_sender.php';
-require_once 'security/clsUserManager.php';
-require_once 'utils/dbo/daoManager.php';
-// require_once 'blockchain/clsBlock.php';
-// require_once 'blockchain/clsBlockchain.php';
-require_once 'blockchain/clsTransaction.php';
-require_once 'bizum/clsBizum.php';
+require_once 'com/utils/dbo/daoConnection.php';
+require_once 'com/utils/dbo/daoCommand.php';
+require_once 'com/utils/mailtools/mail_sender.php';
+require_once 'com/security/clsUserManager.php';
+require_once 'com/utils/dbo/daoManager.php';
+// require_once 'com/blockchain/clsBlock.php';
+// require_once 'com/blockchain/clsBlockchain.php';
+require_once 'com/blockchain/clsTransaction.php';
+require_once 'com/bizum/clsBizum.php';
 
 // Crear una instancia de DBCommand
 function newDBCommand($server, $db, $user, $password)
