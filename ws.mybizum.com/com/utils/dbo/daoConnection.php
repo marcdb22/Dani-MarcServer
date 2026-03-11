@@ -1,32 +1,36 @@
 <?php
+class DBConnection {
 
-class DBConnection
-{
-    private PDO $pdo;
+    private $password;
+    private $user;
+    private $databaseName;
+    private $host;
+    // private $port;
+    private $db;
 
-    public function __construct(
-        string $server = "host.docker.internal,1433",
-        string $database = "master",
-        string $user = "SA",
-        string $password = "Asix1234"
-    ) {
-        $this->connectON($server, $database, $user, $password);
+    public function __construct($host, $databaseName, $user, $password) {
+        $this->host=$host;
+        $this->databaseName=$databaseName;
+        $this->user=$user;
+        $this->password=$password;
+        $this -> connectON();
     }
 
-    private function connectON(string $server, string $database, string $user, string $password): void
-    {
-        $dsn = "sqlsrv:Server=$server;Database=$database;Encrypt=true;TrustServerCertificate=true";
-
+    private function connectON() {
         try {
-            $this->pdo = new PDO($dsn, $user, $password);
-            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $e) {
-            throw new Exception("Error de conexión: " . $e->getMessage());
+            $this -> db = new PDO("sqlsrv:Server=$this->host;Database=$this->databaseName","$this->user","$this->password");
+            $this -> db -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+           // $this -> consulta(); 
+        } catch (Exception $error) {
+            echo "No se ha podido conectar a la bd: ". $error -> getMessage();
         }
     }
 
-    public function getPDOObject(): PDO
-    {
-        return $this->pdo;
+    public function getPDOObject(){
+        return $this -> db;
     }
 }
+
+
+
+?>
