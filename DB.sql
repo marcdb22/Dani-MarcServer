@@ -1,4 +1,4 @@
-USE [master]
+USE [PP_DDBB]
 GO
 /****** Object:  Database [PP_DDBB]    Script Date: 28/05/2025 13:51:03 ******/
 CREATE DATABASE [PP_DDBB]

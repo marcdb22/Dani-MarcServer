@@ -28,19 +28,19 @@ function newDBCommand($server, $db, $user, $password)
 }
 function connUser()
 {
-    $dbCommand = newDBCommand('172.17.0.2,1433', 'PP_DDBB', 'sa', 'Password2!');
+    $dbCommand = newDBCommand('host.docker.internal,1433', 'PP_DDBB', 'SA', 'Asix1234');
     return new UserManager($dbCommand);
 }
 
 function connDBManager()
 {
-    $dbCommand = newDBCommand('172.17.0.2,1433', 'PP_DDBB', 'sa', 'Password2!');
+    $dbCommand = newDBCommand('host.docker.internal,1433', 'PP_DDBB', 'SA', 'Asix1234');
     return new DBManager($dbCommand);
 }
 
 function connBizum()
 {
-    $dbCommand = newDBCommand('172.17.0.2,1433', 'PP_DDBB', 'sa', 'Password2!');
+    $dbCommand = newDBCommand('host.docker.internal,1433', 'PP_DDBB', 'SA', 'Asix1234');
     return new Bizum($dbCommand);
 }
 // function connBlockChain()

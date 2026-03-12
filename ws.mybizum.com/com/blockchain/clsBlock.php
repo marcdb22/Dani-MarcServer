@@ -20,6 +20,7 @@ class Block
             $this->hash = $this->calculateHash();
         }
     }
+    
 
     public function calculateHash()
     {
