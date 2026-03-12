@@ -43,13 +43,13 @@ function connBizum()
     $dbCommand = newDBCommand('host.docker.internal,1433', 'PP_DDBB', 'SA', 'Asix1234');
     return new Bizum($dbCommand);
 }
-// function connBlockChain()
-// {
-//     $connection = new DBConnection('172.17.0.2,1433', 'BlockchainDB', 'sa', 'Password2!');
-//     $pdoObject = $connection->getPDOObject();
-//     $dbCommand = new DBCommand($pdoObject);
-//     return $dbCommand;
-// }
+ function connBlockChain()
+ {
+     $connection = new DBConnection('172.17.0.2,1433', 'BlockchainDB', 'sa', 'Password2!');
+     $pdoObject = $connection->getPDOObject();
+     $dbCommand = new DBCommand($pdoObject);
+     return $dbCommand;
+ }
 
 $action = isset($_GET['action']) ? $_GET['action'] : '';
 
