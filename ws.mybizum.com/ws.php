@@ -142,7 +142,8 @@ if (empty($action)) {
         default:
             echo "Acción no válida.";
             break;
-    }
+    } 
+    
 }
 
 // Register (POR EL MOMENTO BIEN):
