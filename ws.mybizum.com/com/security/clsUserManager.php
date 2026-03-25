@@ -223,6 +223,27 @@ class UserManager
         }
     }
 
+    public function blockuser($ssid)
+    {
+        if (empty($ssid)) {
+            echo "Todos los campos son obligatorios.";
+        } else {
+            try {
+                    $result = $this->dbCommand->execute('sp_block_user', array ($ssid));
+                    $xml = simplexml_load_string($result);
+                    header('Content-Type: text/xml');
+                    echo $xml->asXML();
+            } catch (PDOException $e) {
+                echo 'Error: ' . $e->getMessage();
+            }
+        }
+    }
+
+     
+
+
+    
+    
     // public function add_transaction($sender, $receiver, $amount)
     // {
     //     if (empty($sender) || empty($receiver) || empty($amount)) {

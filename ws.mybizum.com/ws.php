@@ -131,14 +131,18 @@ if (empty($action)) {
         case "addTransaction":
             $bizum = connBizum();
             $bizum->sendBizum($_GET['ssid'], $_GET['receiver'], $_GET['amount']);
-
+        
+        case "blockuser":
+            $userManager = connUser();
+            $userManager->blockuser (($_GET['ssid']));
+            break;
             // $dbCommand = newDBCommand('172.17.0.2,1433', 'BlockchainDB', 'sa', 'Password2!');
             // $myBlockchain = new Blockchain();
             // $tx = new Transaction($_GET['sender'], $_GET['receiver'], $_GET['amount']);
             // $block2 = new Block(($myBlockchain->getLatestBlock())->index + 1, date("Y-m-d H:i:s"), [$tx]);
             // $myBlockchain->addBlock($block2);
             // $myBlockchain->save();
-            break;
+            
         default:
             echo "Acción no válida.";
             break;

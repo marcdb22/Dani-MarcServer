@@ -472,7 +472,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[USER_CONNECTIONS](
-	[CONNECTION_ID] [uniqueidentifier] NOT NULL,
+	[CONNECTION_ID] [unique identifier] NOT NULL,
 	[USER_ID] [int] NULL,
 	[USERNAME] [nvarchar](25) NULL,
 	[DATE_CONNECTED] [datetime] NULL,
@@ -1581,6 +1581,9 @@ BEGIN
     SELECT @ResponseXML;
 END;
 GO
+
+
+
 /****** Object:  StoredProcedure [dbo].[sp_user_logout]    Script Date: 28/05/2025 13:51:03 ******/
 SET ANSI_NULLS ON
 GO
